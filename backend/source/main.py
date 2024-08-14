@@ -1,16 +1,19 @@
-# This is a sample Python script.
+from fastapi import FastAPI
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
-
-
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+from source.routers.courses import courses_router
+from source.routers.service import service_router
+from source.routers.users import users_router
 
 
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
+def create_app() -> FastAPI:
+    app_ = FastAPI()
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+    # add routers
+    app_.include_router(service_router)
+    app_.include_router(courses_router)
+    app_.include_router(users_router)
+
+    return app_
+
+
+app = create_app()
