@@ -14,16 +14,18 @@ logger: structlog.stdlib.BoundLogger = structlog.get_logger(module="users_logger
 
 @users_router.get("/all")
 async def get_users(
+    page: int = 1,
+    page_size: int = 50,
     session: AsyncSession = Depends(create_session),
 ) -> list[UserSchema]:
-    stmt = select(User).order_by(User.id)
+    stmt = (
+        select(User).order_by(User.id).limit(page_size).offset((page - 1) * page_size)
+    )
 
     cursor = await session.execute(stmt)
-
     users_raw = cursor.fetchall()
-    users = [user for (user,) in users_raw]
 
-    return users
+    return [user for (user,) in users_raw]
 
 
 @users_router.post("/")
