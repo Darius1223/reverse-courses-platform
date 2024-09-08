@@ -5,6 +5,8 @@ on:
     branches: [ "master" ]
   pull_request:
     branches: [ "master" ]
+env:
+  IMAGE_TAG: backend:$GITHUB_ACTION
 
 jobs:
 
@@ -15,4 +17,6 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     - name: Build the Docker image
-      run: docker build --tag my-image-name:$(date +%s) backend
+      run: docker build --tag $IMAGE_TAG backend
+    - name: Push to Docker registry
+      run: docker push $IMAGE_TAG
