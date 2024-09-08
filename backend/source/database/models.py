@@ -1,14 +1,16 @@
-from sqlalchemy import String
-from sqlalchemy.ext.asyncio import AsyncAttrs
-from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column
+from typing import Optional
+
+from sqlmodel import Field, SQLModel
 
 
-class Base(AsyncAttrs, DeclarativeBase):
-    pass
+class User(SQLModel, table=True):
+    id: Optional[int] = Field(default=None, primary_key=True)
 
+    name: str
+    secret_name: str
+    age: Optional[int] = None
 
-class User(Base):
-    __tablename__ = "users"
+    username: str
+    password: str
 
-    id: Mapped[int] = mapped_column(primary_key=True, unique=True, autoincrement=True)
-    role: Mapped[str] = mapped_column(String(length=30))
+    role: str

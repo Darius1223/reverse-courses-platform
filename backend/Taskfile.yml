@@ -6,12 +6,16 @@ tasks:
       - ruff format .
       - ruff check --fix .
 
+  run:
+    cmds:
+      - docker compose up --build
+
   migration:
     cmds:
-      -  docker exec reverse_courses_platform-backend-1 poetry run python -m alembic upgrade head
+      -  docker exec reverse-courses-platform-backend-1 poetry run python -m alembic upgrade head
 
   make_migration-*:
     vars:
       MIGRATE_NAME: '{{index .MATCH 0}}'
     cmds:
-      - docker exec reverse_courses_platform-backend-1 poetry run python -m alembic revision --autogenerate -m {{ .MIGRATE_NAME }}
+      - docker exec reverse-courses-platform-backend-1 poetry run python -m alembic revision --autogenerate -m {{ .MIGRATE_NAME }}

@@ -7,7 +7,7 @@ readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.12"
-fastapi = "^0.112.0"
+fastapi = {extras = ["standard"], version = "^0.112.2"}
 SQLAlchemy = {extras = ["asyncio"], version = "^2.0.32"}
 alembic = "^1.13.2"
 uvicorn = "^0.30.6"
@@ -16,6 +16,11 @@ pydantic-settings = "^2.4.0"
 psycopg2-binary = "^2.9.9"
 structlog = "^24.4.0"
 asyncpg = "^0.29.0"
+pyjwt = "^2.9.0"
+passlib = {extras = ["bcrypt"], version = "^1.7.4"}
+sqlmodel = "^0.0.21"
+python-multipart = "^0.0.9"
+starlette-admin = "^0.14.1"
 
 [tool.poetry.group.dev.dependencies]
 ruff = "^0.5.7"
