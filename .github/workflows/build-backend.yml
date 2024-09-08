@@ -6,7 +6,7 @@ on:
   pull_request:
     branches: [ "master" ]
 env:
-  IMAGE_TAG: darius1223/reverse-courses:${{ github.run_id }}
+  IMAGE_TAG: darius1223/reverse-courses:${{ github.sha }}
   DOCKER_LOGIN: ${{ secrets.DOCKER_LOGIN}}
   DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD}}
 

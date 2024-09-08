@@ -3,6 +3,7 @@ name: Deploy
 env:
   REGISTRY: docker.io
   IMAGE_NAME: ${{ github.repository }}
+  IMAGE_TAG: darius1223/reverse-courses:${{ github.sha }}
 
 on:
   workflow_dispatch
@@ -44,6 +45,7 @@ jobs:
         env:
           IMAGE_REF: ${{ steps.meta.outputs.tags }}
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          IMAGE_TAG: IMAGE_TAG
         run: |
           DOCKER_CONTEXT=remote docker compose -f docker-compose-prod.yaml up -d
 
