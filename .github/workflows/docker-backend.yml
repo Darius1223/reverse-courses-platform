@@ -17,6 +17,6 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     - name: Build the Docker image
-      run: docker build --tag backend:$GITHUB_JOB backend
+      run: docker build --tag darius1223/reverse-courses:$GITHUB_RUN_ID backend
     - name: Push to Docker registry
-      run: docker push backend:$GITHUB_JOB
+      run: docker push darius1223/reverse-courses:$GITHUB_RUN_ID
