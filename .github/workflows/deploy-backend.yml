@@ -45,7 +45,6 @@ jobs:
         env:
           IMAGE_REF: ${{ steps.meta.outputs.tags }}
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-          IMAGE_TAG: IMAGE_TAG
         run: |
           DOCKER_CONTEXT=remote docker compose -f docker-compose-prod.yaml up -d
 
