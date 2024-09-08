@@ -1,0 +1,14 @@
+version: '3.9'
+
+
+services:
+  backend:
+    image: backend:local
+    build:
+      context: backend
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    volumes:
+      - "./backend:/app"
+
