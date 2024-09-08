@@ -49,7 +49,7 @@ jobs:
           envkey_SECRET_KEY: ${{ secrets.SECRET_KEY }}
           envkey_VARIABLE: ${{ vars.SOME_ACTION_VARIABLE }}
           envkey_AUTH__SECRET_KEY: "aks"
-          envkey_AUTH__DATABASE_URL: "fe"
+          envkey_DATABASE_URL: "fe"
           some_other_variable: foobar
           file_name: .env
           fail_on_empty: false
