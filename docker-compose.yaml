@@ -24,3 +24,11 @@ services:
       POSTGRES_DB: reverse_courses
     ports:
       - "5432:5432"
+
+  nginx:
+    image: nginx:latest
+    ports:
+      - "9999:80"
+    volumes:
+      - /var/www/html:/usr/share/nginx/html
+    restart: always
