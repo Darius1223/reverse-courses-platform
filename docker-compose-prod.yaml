@@ -11,6 +11,7 @@ services:
       - "8888:8000"
   frontend:
     image: frontend:local
+    restart: always
     build:
       context: frontend
       dockerfile: Dockerfile
@@ -43,5 +44,6 @@ services:
       - ./templates:/etc/nginx/templates
     ports:
       - "8000:80"
+    restart: always
 
 
