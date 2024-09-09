@@ -11,7 +11,7 @@ from source.routers.users import users_router
 
 
 def create_app() -> FastAPI:
-    app_ = FastAPI()
+    app_ = FastAPI(root_path="/api")
 
     # add routers
     app_.include_router(service_router)

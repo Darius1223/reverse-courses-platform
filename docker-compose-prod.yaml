@@ -8,7 +8,18 @@ services:
     env_file:
       - .env
     ports:
-      - "8000:8000"
+      - "8888:8000"
+  frontend:
+    image: frontend:local
+    build:
+      context: frontend
+      dockerfile: Dockerfile
+    #    env_file:
+    #      - frontend/.env
+    ports:
+      - "8081:80"
+  #    volumes:
+  #      - "./frontend:/app"
   db:
     image: postgres
     restart: always
@@ -23,5 +34,14 @@ services:
         target: /dev/shm
         tmpfs:
           size: 134217728 # 128*2^20 bytes = 128Mb
+  web:
+    image: web:local
+    build:
+      dockerfile: web.Dockerfile
+      context: .
+    volumes:
+      - ./templates:/etc/nginx/templates
+    ports:
+      - "8000:80"
 
 

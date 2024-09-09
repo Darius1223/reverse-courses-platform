@@ -10,9 +10,21 @@ services:
     env_file:
       - backend/.env
     ports:
-      - "8000:8000"
+      - "8080:8000"
     volumes:
       - "./backend:/app"
+
+  frontend:
+    image: frontend:local
+    build:
+      context: frontend
+      dockerfile: Dockerfile
+#    env_file:
+#      - frontend/.env
+    ports:
+      - "8081:80"
+#    volumes:
+#      - "./frontend:/app"
 
   db:
     image: postgres
@@ -25,10 +37,12 @@ services:
     ports:
       - "5432:5432"
 
-  nginx:
-    image: nginx:latest
-    ports:
-      - "9999:80"
+  web:
+    image: web:local
+    build:
+      dockerfile: web.Dockerfile
+      context: .
     volumes:
-      - /var/www/html:/usr/share/nginx/html
-    restart: always
+      - ./templates:/etc/nginx/templates
+    ports:
+      - "8000:80"
