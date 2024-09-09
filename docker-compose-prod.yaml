@@ -15,12 +15,8 @@ services:
     build:
       context: frontend
       dockerfile: Dockerfile
-    #    env_file:
-    #      - frontend/.env
     ports:
       - "8081:80"
-  #    volumes:
-  #      - "./frontend:/app"
   db:
     image: postgres
     restart: always
@@ -40,8 +36,6 @@ services:
     build:
       dockerfile: web.Dockerfile
       context: .
-    volumes:
-      - ./templates:/etc/nginx/templates
     ports:
       - "8000:80"
     restart: always
