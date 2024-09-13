@@ -1,13 +1,20 @@
-<template>
+<template data-bs-theme="dark">
   <nav-bar></nav-bar>
 
-  <main class="">
+  <main>
     <router-view></router-view>
   </main>
   <FooterBar></FooterBar>
 </template>
 
-<style lang="scss"></style>
+<style lang="scss">
+@import "./styles/main.scss";
+
+
+main{
+  min-height: 95vh
+}
+</style>
 
 <script setup>
 import FooterBar from "./components/FooterBar.vue";

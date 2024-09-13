@@ -1,5 +1,5 @@
 <template>
-  <div class="" style="min-height: 100vh">
+  <div class="">
     <div class="text-center grad pt-5">
       <div class="">
         <svg
@@ -25,11 +25,11 @@
           />
         </svg>
       </div>
-      <div class="display-3 text-white mt-1 contur-text">
-        Педагогическая мастерская
+      <div class="text-white mt-1 contur-text">
+        <h1 class="fw-semibold lh-1">Педагогическая мастерская</h1>
       </div>
     </div>
-    <div id="content" class="container">
+    <div id="content" class="container text-light">
       <div class="lead mt-5">
         <div class="row">
           <div class="col">
@@ -43,7 +43,12 @@
               ресурсы, инновационные методики, идеи для уроков и практические
               советы по работе с детьми.
             </p>
-            <button class="btn btn-primary btn-lg w-100">Я ученик</button>
+            <router-link 
+            class="btn btn-primary btn-lg w-100"
+            :to="{name: 'registration', params: {target: 'student'}}"
+            >
+              Я ученик
+            </router-link>
           </div>
 
           <div class="col">
@@ -58,22 +63,26 @@
               строить будущее образования!
             </p>
 
-            <button class="btn btn-outline-primary btn-lg w-100">
+            <button class="btn btn-outline-warning btn-lg w-100">
               Я учитель
             </button>
           </div>
+          <button class="btn btn-lg btn-outline-light w-10 mt-3">
+            Уже зарегистрирован
+          </button>
         </div>
       </div>
     </div>
   </div>
 </template>
 
-<style>
+<style lang="scss">
+@import "../styles/main.scss";
+
 .grad {
-  background-image: linear-gradient(180deg, #0d6efd, white);
-  min-height: 47vh;
+  // background-image: linear-gradient(180deg, $primary, $dark);
+  // background: rgb(2,0,36);
+  background: linear-gradient(180deg, $primary 0%, $dark 100%);
 }
-.contur-text {
-  text-shadow: 2px 2px #16045f;
-}
+
 </style>
