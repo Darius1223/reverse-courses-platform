@@ -63,9 +63,12 @@
               строить будущее образования!
             </p>
 
-            <button class="btn btn-outline-warning btn-lg w-100">
+            <router-link 
+            class="btn btn-warning btn-lg w-100"
+            :to="{name: 'registration', params: {target: 'teacher'}}"
+            >
               Я учитель
-            </button>
+            </router-link>
           </div>
           <button class="btn btn-lg btn-outline-light w-10 mt-3">
             Уже зарегистрирован

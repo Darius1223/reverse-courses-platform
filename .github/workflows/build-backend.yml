@@ -1,26 +1,26 @@
-name: Docker Image CI [backend]
-
-on:
-  push:
-    branches: [ "master" ]
-  pull_request:
-    branches: [ "master" ]
-env:
-  IMAGE_TAG: darius1223/reverse-courses:${{ github.sha }}
-  DOCKER_LOGIN: ${{ secrets.DOCKER_LOGIN}}
-  DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD}}
-
-jobs:
-
-  docker:
-
-    runs-on: ubuntu-latest
-
-    steps:
-    - uses: actions/checkout@v4
-    - name: Build the Docker image
-      run: docker build --tag $IMAGE_TAG backend
-    - name: Docker Login
-      run: docker login -u $DOCKER_LOGIN -p $DOCKER_PASSWORD
-    - name: Push to Docker registry
-      run: docker push $IMAGE_TAG
+#name: Docker Image CI [backend]
+#
+#on:
+#  push:
+#    branches: [ "master" ]
+#  pull_request:
+#    branches: [ "master" ]
+#env:
+#  IMAGE_TAG: darius1223/reverse-courses:${{ github.sha }}
+#  DOCKER_LOGIN: ${{ secrets.DOCKER_LOGIN}}
+#  DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD}}
+#
+#jobs:
+#
+#  docker:
+#
+#    runs-on: ubuntu-latest
+#
+#    steps:
+#    - uses: actions/checkout@v4
+#    - name: Build the Docker image
+#      run: docker build --tag $IMAGE_TAG backend
+#    - name: Docker Login
+#      run: docker login -u $DOCKER_LOGIN -p $DOCKER_PASSWORD
+#    - name: Push to Docker registry
+#      run: docker push $IMAGE_TAG

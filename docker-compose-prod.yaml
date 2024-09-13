@@ -4,13 +4,16 @@ version: '3.9'
 services:
   backend:
     image: ${IMAGE_TAG}
+    build:
+      context: backend
+      dockerfile: Dockerfile
     restart: always
     env_file:
       - .env
     ports:
       - "8888:8000"
   frontend:
-    image: frontend:local
+    image: ${FRONTEND_IMAGE_TAG}
     restart: always
     build:
       context: frontend
