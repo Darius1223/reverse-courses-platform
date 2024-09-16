@@ -6,6 +6,8 @@ env:
   BACKEND_IMAGE_TAG: darius1223/reverse-courses:backend-${{ github.sha }}
   FRONTEND_IMAGE_TAG: darius1223/reverse-courses:frontend-${{ github.sha }}
   WEB_IMAGE_TAG: darius1223/reverse-courses:web-${{ github.sha }}
+  DOCKER_LOGIN: ${{ secrets.DOCKER_LOGIN}}
+  DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD}}
 
 on:
   push:
