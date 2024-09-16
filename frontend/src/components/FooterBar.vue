@@ -23,6 +23,6 @@
 
 <style>
 footer {
-    background-color: #0c1c2b;
+    background-color: #1b1c1d;
 }
 </style>

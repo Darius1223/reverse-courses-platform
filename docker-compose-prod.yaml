@@ -3,7 +3,7 @@ version: '3.9'
 
 services:
   backend:
-    image: ${IMAGE_TAG}
+    image: ${BAKEND_IMAGE_TAG}
     build:
       context: backend
       dockerfile: Dockerfile
@@ -35,7 +35,7 @@ services:
         tmpfs:
           size: 134217728 # 128*2^20 bytes = 128Mb
   web:
-    image: web:local
+    image: ${WEB_IMAGE_TAG}
     build:
       dockerfile: web.Dockerfile
       context: .

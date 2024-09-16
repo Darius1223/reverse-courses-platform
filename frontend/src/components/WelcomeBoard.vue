@@ -26,7 +26,7 @@
         </svg>
       </div>
       <div class="text-white mt-1 contur-text">
-        <h1 class="fw-semibold lh-1">Педагогическая мастерская</h1>
+        <h1 class="display-3">Педагогическая мастерская</h1>
       </div>
     </div>
     <div id="content" class="container text-light">
@@ -64,7 +64,7 @@
             </p>
 
             <router-link 
-            class="btn btn-warning btn-lg w-100"
+            class="btn btn-primary btn-lg w-100"
             :to="{name: 'registration', params: {target: 'teacher'}}"
             >
               Я учитель
