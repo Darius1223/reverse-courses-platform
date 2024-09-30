@@ -10,9 +10,8 @@
 <style lang="scss">
 @import "./styles/main.scss";
 
-
-main{
-  min-height: 95vh
+main {
+  min-height: 95vh;
 }
 </style>
 

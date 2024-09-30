@@ -1,16 +1,40 @@
-import enum
+from typing import Annotated
 
-from pydantic import BaseModel, Field, ConfigDict
-
-
-class UserEnum(str, enum.Enum):
-    admin = "admin"
-    student = "student"
-    teacher = "teacher"
+from fastapi import Form
 
 
-class UserSchema(BaseModel):
-    model_config = ConfigDict(from_attributes=True)
-
-    id_: int = Field(alias="id")
-    role: UserEnum
+class RegistrationsRequestForm:
+    def __init__(
+        self,
+        *,
+        email: Annotated[
+            str,
+            Form(),
+        ],
+        firstname: Annotated[
+            str,
+            Form(),
+        ],
+        lastname: Annotated[
+            str,
+            Form(),
+        ],
+        surname: Annotated[
+            str,
+            Form(),
+        ],
+        telephone: Annotated[
+            str,
+            Form(),
+        ],
+        role: Annotated[
+            str,
+            Form(),
+        ],
+    ):
+        self.email = email
+        self.firstname = firstname
+        self.lastname = lastname
+        self.surname = surname
+        self.telephone = telephone
+        self.role = role

@@ -43,9 +43,9 @@
               ресурсы, инновационные методики, идеи для уроков и практические
               советы по работе с детьми.
             </p>
-            <router-link 
-            class="btn btn-primary btn-lg w-100"
-            :to="{name: 'registration', params: {target: 'student'}}"
+            <router-link
+              class="btn btn-primary btn-lg w-100"
+              :to="{ name: 'registration', params: { target: 'student' } }"
             >
               Я ученик
             </router-link>
@@ -63,9 +63,9 @@
               строить будущее образования!
             </p>
 
-            <router-link 
-            class="btn btn-primary btn-lg w-100"
-            :to="{name: 'registration', params: {target: 'teacher'}}"
+            <router-link
+              class="btn btn-primary btn-lg w-100"
+              :to="{ name: 'registration', params: { target: 'teacher' } }"
             >
               Я учитель
             </router-link>
@@ -87,5 +87,4 @@
   // background: rgb(2,0,36);
   background: linear-gradient(180deg, $primary 0%, $dark 100%);
 }
-
 </style>

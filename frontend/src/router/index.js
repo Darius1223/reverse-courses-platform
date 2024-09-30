@@ -7,7 +7,7 @@ const routes = [
     path: "/",
     name: "index",
     meta: {
-      title: "Главная"
+      title: "Главная",
     },
     component: IndexView,
   },
@@ -18,7 +18,7 @@ const routes = [
       title: "Регистрация",
     },
     component: RegistrationView,
-  }
+  },
 ];
 
 const router = createRouter({
@@ -26,7 +26,7 @@ const router = createRouter({
   routes,
 });
 
-const DEFAULT_TITLE = 'Педагогическая мастерская';
+const DEFAULT_TITLE = "Педагогическая мастерская";
 router.beforeEach((to) => {
   document.title = to.meta.title + " / " + DEFAULT_TITLE;
 });

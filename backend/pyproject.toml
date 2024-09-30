@@ -21,6 +21,9 @@ passlib = {extras = ["bcrypt"], version = "^1.7.4"}
 sqlmodel = "^0.0.21"
 python-multipart = "^0.0.9"
 starlette-admin = "^0.14.1"
+dependency-injector = "^4.42.0"
+redis = "^5.0.8"
+aiosmtplib = "^3.0.2"
 
 [tool.poetry.group.dev.dependencies]
 ruff = "^0.5.7"
